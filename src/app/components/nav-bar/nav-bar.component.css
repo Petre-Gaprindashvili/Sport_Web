@@ -1,0 +1,58 @@
+img{
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+}
+h4{
+  font-size: 18px;
+}
+
+/* Grid for category buttons */
+.category-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+/* Category button styling */
+.category-btn {
+  background-color: transparent;
+  border: 2px solid #007bff;
+  padding: 15px;
+  font-size: 18px;
+  color: #007bff;
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  border-radius: 8px;
+}
+
+/* Hover effect on category button */
+.category-btn:hover {
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.1); /* Slight scaling effect */
+}
+
+/* Grid layout for subcategories */
+.subcategories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 15px;
+}
+
+/* Subcategory card styling */
+.subcat-card {
+  background-color: #f8f9fa; /* Light background */
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect on subcategory card */
+.subcat-card:hover {
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.05); /* Slight scaling effect */
+}
