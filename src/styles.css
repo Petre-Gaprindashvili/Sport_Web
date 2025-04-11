@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0 !important;
+    /* padding: 0 !important; */
+    box-sizing: border-box;
+}
+
+
+/* Container for slick dots */
+.slick-dots {
+
+    position: absolute; /* Position the dots */
+    bottom: 10px; /* Distance from the bottom */
+    width: 100%; /* Full width of the carousel */
+    text-align: center; /* Center align the dots */
+    z-index: 1; /* Ensure dots are above other content */
+  }
+  
+  
+  
+  
+  /* Default dot style */
+  .slick-dots li button:before {
+    font-family: 'slick'; /* Ensure the correct font is used */
+    font-size: 12px; /* Adjust size of the dots */
+    color:#6d0221;
+    filter: brightness(2); /* Default dot color */
+    opacity: 0.5; /* Default dot opacity */
+    content: '•'; /* Dot character */
+  }
+  
+  
+  .slick-dots .slick-active button:before {
+    color: #686363;
+    filter: brightness(2); 
+    opacity: 1;
+  }

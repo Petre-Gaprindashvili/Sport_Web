@@ -3,6 +3,10 @@ import { Category } from 'src/app/interfaces/category';
 import { Subcategory } from 'src/app/interfaces/subCategory';
 import { Component, OnInit } from '@angular/core';
 import { Subject, Subscription, takeUntil } from 'rxjs';
+import { Router } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -14,27 +18,33 @@ export class NavBarComponent implements OnInit {
   categories: Category[] = [];
   subCategories: Subcategory[] = [];
   hoverTimeout: any;
+//  categ: number = 98;
+// teams: any[] = [];
+  constructor(public categoriesmanagementservice:CategoriesManagementService, private rote:Router){}
 
-  constructor(public categoriesmanagementservice:CategoriesManagementService,  ){}
 
-
+  
 
 ngOnInit(): void {
 
   this.categoriesmanagementservice.getCategories().subscribe(data=>{
     this.categories = data
-    console.log(data)
   })
+  // this.categoriesmanagementservice.getAllTeams(this.categ).subscribe(temas=>{
+  //   this.teams = temas;
+  //   console.log(temas)
+  // })
 
 }
 
 onCategoryHover(cat: any): void {
   this.selectedCategoryName = cat.name;
-  this.categoriesmanagementservice.getSubcategories(cat.id).subscribe(data => {
+  this.categoriesmanagementservice.getAllSubcategories(cat.id).subscribe(data => {
     this.subCategories = data.subCategories;
+    console.log(data)
     this.subCategories
   });
-   
+
   clearTimeout(this.hoverTimeout)
 }
   onCategoryHoverZoneEnter(): void {
@@ -46,9 +56,18 @@ onCategoryLeave(): void {
   this.hoverTimeout = setTimeout(() => {
     this.subCategories = [];
     this.selectedCategoryName = '';
-  }, 300); // Delay in ms
+  }, 200); // Delay in ms
 }
+
+// goToSubcategory(id: number) {
+//   console.log('Navigating to subcategory with ID:', id);
+
+//   this.rote.navigate(['/subcategory-detail-page', id]);
+// }
+
+
 }
+
 
 
 

@@ -1,0 +1,88 @@
+.subcategory-detail-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    background-color: rgb(13 14 17);
+
+}
+.subcategory-header p{
+    font-size: 10px;
+    color: rgb(212 209 204);
+    font-weight: 500px;
+    margin-top: 50px !important;
+}
+.subcategory-header img{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 2px;
+    margin-top: 30px !important;
+} 
+.subcategory-header h2{
+    color: rgb(212 209 204);
+    margin-top: 11px !important;
+    font-size: x-large;
+}
+ .nav-tabs {
+    border-bottom: none;
+    gap: 20px; /* space between buttons */
+  }
+  
+  .nav-tabs button {
+    font-size: 1.1rem;
+    border-radius: 40px;
+    background-color: transparent;
+    border: 0.5px solid #001a51;;
+    font-weight:400;
+    padding: 4px 25px;
+    font-family:sans-serif;
+  }
+  
+  /* Hover effect - subtle move and color change */
+  .nav-tabs button:hover {
+    background-color: #001a51;
+    color: #fff;
+
+  }
+  
+  /* Active tab style */
+  .nav-link.active {
+    background-color:#001a51!important;
+    color: #fff;
+  }
+  
+  .teams-grid-container {
+    background-color: rgb(11, 12, 14);
+
+    border-top: 0.5px solid #001a51;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .team-card {
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .team-card:hover {
+    transform: scale(1.05);
+  }
+  
+
+  .team-card img {
+    max-width: 70%;
+    height: auto;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+  .team-card h5{
+    color: rgb(212 209 204);
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+  
+  

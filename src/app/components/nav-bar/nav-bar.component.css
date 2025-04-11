@@ -1,58 +1,93 @@
-img{
-  height: 60px;
-  width: 60px;
+
+.container {
+  max-width: none !important;
+}
+
+
+.navbar{
+  background-color:#001a51;
+  height: 12vh;
+  
+}
+.category-buttons button:hover {
+ color: #ffff;
+ font-weight: 400;
+ font-family: sans-serif;
+ filter: brightness(5);
+}
+
+.dropdown-item img{
+  height: 30px;
+  width: 30px;
   object-fit: cover;
+  border-radius: 2px;
 }
-h4{
-  font-size: 18px;
+.dropdown-item h5{
+  font-size: 12px;
+  color: #f3f3f3;
 }
 
-/* Grid for category buttons */
-.category-buttons {
+.dropdown-item:hover{
+  cursor: pointer;
+  filter: brightness(85%);
+}
+/* .dropdown-item h5:hover{
+  color:#b38a52 !important;
+} */
+
+
+
+
+.dropdown-content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 20px; /* Space between buttons */
-  margin-top: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  column-gap: 50px;
+  row-gap: 10px;
+  padding: 25px;
 }
 
-/* Category button styling */
+/* Wrapper for each category; set to relative so that the dropdown is positioned relative to it */
+.category-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style for the category button */
 .category-btn {
-  background-color: transparent;
-  border: 2px solid #007bff;
-  padding: 15px;
-  font-size: 18px;
-  color: #007bff;
-  transition: all 0.3s ease; /* Smooth transition for hover effect */
-  border-radius: 8px;
+  font-weight: 500;
+  color: rgb(199, 200, 197);
+
+  font-family:"Ginto Nord", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  cursor: pointer !important; 
+}
+.category-btn:hover{
+  color: #d7d6d5;
+  filter: brightness(2);
+  transition: 0.5s;
+}
+.category-btn span{
+ font-size: 12px;
+
 }
 
-/* Hover effect on category button */
-.category-btn:hover {
-  background-color: #007bff;
-  color: white;
-  transform: scale(1.1); /* Slight scaling effect */
+/* Dropdown container positioned absolutely relative to its category wrapper */
+.dropdown {
+  position: absolute;
+  top: 100%;           /* directly below the button */
+  left: 50%;           /* start at the center of the button */
+  transform: translateX(-50%); /* center the dropdown relative to the button */
+  z-index: 2;
+  background-color:#001a51;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+  /* width: 250px; */
+
 }
 
-/* Grid layout for subcategories */
-.subcategories {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 15px;
-}
 
-/* Subcategory card styling */
-.subcat-card {
-  background-color: #f8f9fa; /* Light background */
-  text-align: center;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
 
-/* Hover effect on subcategory card */
-.subcat-card:hover {
-  background-color: #007bff;
-  color: white;
-  transform: scale(1.05); /* Slight scaling effect */
-}

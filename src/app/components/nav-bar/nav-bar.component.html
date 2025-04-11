@@ -1,60 +1,49 @@
-<!-- 
-<div class="category-buttons">
-  <button *ngFor="let cat of categories" (click)="onCategoryClick(cat)">
-    {{ cat.name }}
-  </button>
-</div>
+<!-- Navbar Container -->
 
-<div *ngIf="subCategories.length > 0">
-  <h3>Subcategories of {{ selectedCategoryName }}</h3>
-  <div class="subcategories">
-    <div class="subcat-card" *ngFor="let sub of subCategories">
-      <h4>{{ sub.name }}</h4>
-      <img [src]="sub.imageUrl" width="100">
-    </div>
-  </div>
-</div> -->
+<div class="navbar-container">
+  <nav class="navbar d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-around gap-5">
+      <!-- Left: Brand -->
+      <a class="navbar-brand text-white fw-bold" href="#">MyStore</a>
 
-<nav class="bg-danger navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand text-white" href="#">My Brand</a>
-    <!-- Add other navbar items here -->
-  </div>
-</nav>
-<div 
-  class=" container text-center mt-4" 
-  (mouseenter)="onCategoryHoverZoneEnter()" 
-  (mouseleave)="onCategoryLeave()"
->
-  <!-- Category Buttons -->
-  <div class="category-buttons d-flex flex-wrap justify-content-center gap-3">
-    <button
-      class="btn no-bg-border"
-      *ngFor="let cat of categories"
-      (mouseenter)="onCategoryHover(cat)"
-    >
-      {{ cat.name }}
-    </button>
-  </div>
+      <!-- Center: Categories -->
+      <div class="categories-wrapper d-flex justify-content-center gap-2">
+        <!-- Loop through categories; each has its own wrapper -->
+        <div class="category-wrapper" 
+             *ngFor="let cat of categories"
+             (mouseenter)="onCategoryHover(cat)"
+             (mouseleave)="onCategoryLeave()">
+          <button class="btn category-btn  bg-transparent border-0">
+            {{ cat.name }}
+            <span> &#x2335;</span>
+          </button>
 
-  <!-- Subcategories -->
-  <div *ngIf="subCategories.length > 0" class="mt-4">
-    <h3>{{ selectedCategoryName }}</h3>
+          <!-- Dropdown appears below this category if its subcategories have loaded -->
+          <div class="dropdown" 
+               *ngIf="subCategories.length > 0 && selectedCategoryName === cat.name">
+            <!-- <h3 class="mb-3">{{ selectedCategoryName }}</h3> -->
+            <div class="dropdown-content">
+              <div class="dropdown-item text-center d-flex align-items-center gap-2" 
+              *ngFor="let sub of subCategories"  [routerLink]="['/subcategory-detail-page', sub.id]"              
+              >
+                <img [src]="sub.imageUrl" alt="{{ sub.name }}" class="img-fluid mb-2" />
+                <h5>{{ sub.name }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="subcategories d-flex flex-wrap justify-content-center gap-4 mt-3">
-      <div style="display: grid; grid-template-columns: repeat(2,1fr);" class="subcat-card border-0  " *ngFor="let sub of subCategories">
-        <img [src]="sub.imageUrl" />
-        <h4>{{ sub.name }}</h4>
+      <!-- Right: Auth -->
+      <div class="auth-buttons d-flex gap-2">
+        <button class="btn btn-outline-light">Login</button>
+        <button class="btn btn-light text-dark">Register</button>
       </div>
     </div>
-  </div>
+  </nav>
 </div>
 
-  
 
 
 
-  
-  
-  
-  
+

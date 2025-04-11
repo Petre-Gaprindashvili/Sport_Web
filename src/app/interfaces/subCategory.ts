@@ -4,3 +4,6 @@ export interface Subcategory {
     imageUrl: string;
     categoryId: number;
   }
+
+
+  

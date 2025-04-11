@@ -1,0 +1,49 @@
+<div class="subcategory-detail-container">
+<div *ngIf="subcategoryForHeader?.name" class="subcategory-header text-center ">
+  <p>Advertisement
+
+  </p>
+  <img [src]="subcategoryForHeader.imageUrl" class="img-fluid"/>
+  <h2>{{ subcategoryForHeader.name }}</h2>
+</div>
+
+<div class="nav nav-tabs d-flex align-items-center justify-content-center">
+  <button 
+    *ngFor="let tab of tabs" 
+    class="nav-link"
+    [ngClass]="{ 'active': activeTab === tab.sectionName }"
+    (click)="onTabChange(tab.sectionName)">
+    {{ tab.sectionName }}
+  </button>
+</div>
+
+<!-- Home Tab -->
+<div *ngIf="activeTab === 'Home'" class="">
+  <p>{{ homeContent }}</p>
+  jjjjjjjjj
+  
+</div>
+
+<!-- AllTeams Tab -->
+<!-- AllTeams Tab -->
+<div *ngIf="activeTab === 'AllTeams'" class="teams-grid-container">
+  <div *ngFor="let team of teams" class="team-card">
+    <img [src]="team.logoUrl" alt="Team Logo">
+    <h5>{{ team.teamName }}</h5>
+  </div>
+</div>
+
+<!-- News Tab -->
+<div *ngIf="activeTab === 'News'" class="row">
+  <div *ngFor="let item of news" class="col-md-6 mb-4">
+    <div class="card h-100 shadow-sm">
+      <img [src]="item.imageUrl" class="card-img-top" alt="News Image">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <p class="card-text">{{ item.content }}</p>
+        <small class="text-muted">{{ item.publishDate | date }}</small>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
