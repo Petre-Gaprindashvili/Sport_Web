@@ -1,0 +1,98 @@
+/* authentication */
+.auth-container{
+    height: 88vh;
+}
+.auth-container h2{
+  font-family: "Noto Serif",serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #c8c6c0;
+}
+.auth-wrapper{
+    background-color: #17191a;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border: 0.5px solid #878787;
+    border-radius: 2px;
+    height: 500px;
+    width: 400px;
+}
+.toggle-mode a{
+  cursor: pointer;
+}
+.toggle-mode a{
+  text-decoration: none;
+  font-weight: bold;
+
+}
+.toggle-mode a:hover{
+  text-decoration: underline;
+}
+.forgot-password{
+  cursor: pointer;
+}
+.forgot-password a{
+  text-decoration: none;
+  font-weight: bold;
+}
+.forgot-password a:hover{
+  text-decoration: underline;
+}
+.input-invalid {
+  border-bottom: 1px solid red !important;
+}
+
+form{
+  width: 80%;
+}
+form input{
+width: 100%;
+margin-top: 30px !important;
+background: none;
+ border: none;
+ border-bottom: 1px solid #ccc;
+ border-radius: 0;
+ box-shadow: none;
+ color: #ffff;
+}
+::placeholder{
+    color: #878787;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+
+form input:focus{
+    border-bottom: 2px solid #ccc; /* or any color you like */
+    outline: none;
+}
+ input:focus::placeholder{
+  color: #d4cdcd;
+
+}
+.error{
+  color: red;
+  text-align: start;
+  font-size: 14px;
+  font-weight: 200px;
+  font-family: sans-serif;
+}
+form button{
+width: 100%;
+height: 45px;
+margin-top: 25px !important;
+background-color:#001a51;
+border: none;
+color: rgb(199, 200, 197);
+font-family: sans-serif;
+font-weight: bold;
+border-radius: 2px;
+}
+
+form button:hover{
+  filter: brightness(94%);
+  transition: 0.1s;
+}
+
+

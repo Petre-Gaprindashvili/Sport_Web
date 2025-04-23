@@ -9,6 +9,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { teams } from '../interfaces/teams';
 import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 import { News } from '../interfaces/news';
+import { matches } from '../interfaces/matches';
 
 
 
@@ -42,13 +43,24 @@ export class CategoriesManagementService {
   }
 
   getAllTeams(categoryId:number):Observable<teams[]>{
-  return this.http.get<teams[]>(`https://localhost:7284/api/teams/GetTeams/${categoryId}`)
+  return this.http.get<teams[]>(`https://localhost:7284/api/teams/GetAllTeams/${categoryId}`)
   }
+  
+  getMatches(categoryId:number):Observable<matches[]>{
+  return this.http.get<matches[]>(`${environment.backendBaseUrl}/api/matches/GetMatches/${categoryId}`)
+  }
+
   getNews(categoryId:number):Observable<News[]>{
-    return this.http.get<News[]>(`https://localhost:7284/api/news/GetNews/${categoryId}`)
+    return this.http.get<News[]>(`https://localhost:7284/api/news/GetNewsByCategory/${categoryId}`)
+  }
+
+  getVideoNews(categoryId:number):Observable<News[]>{
+    return this.http.get<News[]>(`${environment.backendBaseUrl}/api/news/GetVideoNewsByCategory/${categoryId}`)
   }
 
 }
+
+
 
 
 

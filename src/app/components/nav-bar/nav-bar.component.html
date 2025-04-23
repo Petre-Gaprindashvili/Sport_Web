@@ -1,31 +1,26 @@
 <!-- Navbar Container -->
-
 <div class="navbar-container">
-  <nav class="navbar d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-around gap-5">
+  <nav class="navbar d-flex align-items-center justify-content-center">
+    <div class="container d-flex align-items-center justify-content-around gap-5 w-100">
       <!-- Left: Brand -->
-      <a class="navbar-brand text-white fw-bold" href="#">MyStore</a>
-
+      <a class="navbar-brand text-white fw-bold" [routerLink]="['/']">MyStore</a>
+      
       <!-- Center: Categories -->
-      <div class="categories-wrapper d-flex justify-content-center gap-2">
-        <!-- Loop through categories; each has its own wrapper -->
-        <div class="category-wrapper" 
+      <div class="categories-wrapper d-flex justify-content-center gap-3">
+        <div class="category-wrapper"
              *ngFor="let cat of categories"
              (mouseenter)="onCategoryHover(cat)"
              (mouseleave)="onCategoryLeave()">
-          <button class="btn category-btn  bg-transparent border-0">
+          <button class="btn category-btn bg-transparent border-0">
             {{ cat.name }}
-            <span> &#x2335;</span>
+            <span>&#x2335;</span>
           </button>
-
-          <!-- Dropdown appears below this category if its subcategories have loaded -->
-          <div class="dropdown" 
+          <div class="dropdown"
                *ngIf="subCategories.length > 0 && selectedCategoryName === cat.name">
-            <!-- <h3 class="mb-3">{{ selectedCategoryName }}</h3> -->
             <div class="dropdown-content">
-              <div class="dropdown-item text-center d-flex align-items-center gap-2" 
-              *ngFor="let sub of subCategories"  [routerLink]="['/subcategory-detail-page', sub.id]"              
-              >
+              <div class="dropdown-item text-center d-flex align-items-center gap-2"
+                   *ngFor="let sub of subCategories"
+                   [routerLink]="['/subcategory-detail-page', sub.id]">
                 <img [src]="sub.imageUrl" alt="{{ sub.name }}" class="img-fluid mb-2" />
                 <h5>{{ sub.name }}</h5>
               </div>
@@ -34,14 +29,28 @@
         </div>
       </div>
 
-      <!-- Right: Auth -->
-      <div class="auth-buttons d-flex gap-2">
-        <button class="btn btn-outline-light">Login</button>
-        <button class="btn btn-light text-dark">Register</button>
+      <!-- Right side: Cart + Auth -->
+      <div class=" d-flex align-items-center gap-5">
+        <!-- Cart Icon (always takes space, visibility toggled) -->
+        <div [ngClass]="{ 'invisible': !(router.url.includes('/team-detail-page') || router.url === '/cart' || router.url.includes('/product-detail-page')) }">
+          <a routerLink="/cart" class="nav-link position-relative text-white">
+            <i class="bi bi-cart3 fs-4">cart</i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{cartItemCount}}
+            </span>
+          </a>
+        </div>
+
+        <!-- Auth Buttons -->
+        <div class="auth-buttons d-flex gap-2">
+          <button [routerLink]="['/auth']" [queryParams]="{mode:'login'}" class="login btn btn-outline-light">Login</button>
+          <button [routerLink]="['/auth']" [queryParams]="{mode:'register'}" class="register btn btn-outline-light">Create account</button>
+        </div>
       </div>
     </div>
   </nav>
 </div>
+
 
 
 

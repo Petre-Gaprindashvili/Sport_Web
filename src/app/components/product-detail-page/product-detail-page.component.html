@@ -1,0 +1,22 @@
+<div *ngIf="product"class="product-detail-container bg-dark d-flex align-items-center justify-content-center gap-5">
+    <!-- Product Image -->
+    <div class="product-image-container">
+        <h2 class="product-name text-light mb-2">{{ product.name }}</h2>
+      <img [src]="product.imageUrl" class="product-image" />
+    </div>
+    <!-- Product Info -->
+    <div class="product-info d-flex flex-column justify-content-start gap-3">
+        <p class="text-white">{{ product.description }}</p>
+      <p class="fw-bold text-white">$ {{ product.price }}</p>
+  
+      <div *ngIf="product.stock > 0" class="text-primary">In Stock: {{ product.stock }}</div>
+      <div *ngIf="product.stock === 0" class="text-danger">Out of Stock</div>
+  
+      <button  (click)="addTocart(product)"
+        class="btn btn-primary w-50 mt-3">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+  
+

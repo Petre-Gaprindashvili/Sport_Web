@@ -1,0 +1,66 @@
+article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   background-color: #1b1d1e;
+}
+.news-container {
+    max-width: 800px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 2em;
+  }
+  .news-container h2 {
+    white-space: pre-wrap;
+    text-align: left;
+    font-size: 34px;
+    font-weight: 400;
+    font-family: sans-serif;
+    color: #ffff;
+    margin-top: 30px !important;
+
+  }
+  .news-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 16px auto;
+  }
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin: 0 auto 16px auto;
+    max-width: 100%; /* Now this works */
+  }
+  .video-container iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    margin: 0 auto 16px auto;
+  }
+  .news-container .datatime{
+    color: #878787;
+    font-size: 14px;
+
+  }
+  .news-container p  {
+    text-align: justify; /* Optional: nicer text block appearance */
+    line-height: 1.6;
+    white-space: pre-wrap; /* Preserves line breaks and wraps */
+    color: rgb(212 209 204);
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: 400;
+  }
+  

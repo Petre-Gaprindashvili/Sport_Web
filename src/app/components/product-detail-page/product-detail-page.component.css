@@ -1,0 +1,19 @@
+/* product-detail */
+.product-detail-container{
+    height: 88vh;
+    padding: 20px;
+}
+
+.product-image-container{
+ width: 45%;
+}
+.product-detail-container img{
+    width: 500px;
+    height: 400px;
+}
+
+.product-info{
+    width: 55%;
+}
+
+

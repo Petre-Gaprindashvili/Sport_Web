@@ -4,6 +4,10 @@ import { Subcategory } from 'src/app/interfaces/subCategory';
 import { Component, OnInit } from '@angular/core';
 import { Subject, Subscription, takeUntil } from 'rxjs';
 import { Router } from '@angular/router';
+import { state } from '@angular/animations';
+import { CartManagementServiceService } from 'src/app/services/cart-management-service.service';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 
 
@@ -18,23 +22,22 @@ export class NavBarComponent implements OnInit {
   categories: Category[] = [];
   subCategories: Subcategory[] = [];
   hoverTimeout: any;
-//  categ: number = 98;
-// teams: any[] = [];
-  constructor(public categoriesmanagementservice:CategoriesManagementService, private rote:Router){}
-
-
-  
-
+  showCartIcon: boolean = false;
+  cartItemCount:number = 0; 
+  constructor(public authservice:AuthService, public router: Router, public categoriesmanagementservice:CategoriesManagementService, private cartservice: CartManagementServiceService){}
 ngOnInit(): void {
 
   this.categoriesmanagementservice.getCategories().subscribe(data=>{
     this.categories = data
   })
-  // this.categoriesmanagementservice.getAllTeams(this.categ).subscribe(temas=>{
-  //   this.teams = temas;
-  //   console.log(temas)
-  // })
 
+   this.cartservice.cartCount$.subscribe(count=>{
+    this.cartItemCount = count
+  })
+  const userId = this.authservice.getUserId();
+  if (userId) {
+    this.cartservice.updateCartState(userId);
+  }
 }
 
 onCategoryHover(cat: any): void {
@@ -58,12 +61,6 @@ onCategoryLeave(): void {
     this.selectedCategoryName = '';
   }, 200); // Delay in ms
 }
-
-// goToSubcategory(id: number) {
-//   console.log('Navigating to subcategory with ID:', id);
-
-//   this.rote.navigate(['/subcategory-detail-page', id]);
-// }
 
 
 }

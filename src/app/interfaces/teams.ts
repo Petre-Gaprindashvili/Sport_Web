@@ -4,3 +4,4 @@ export interface teams{
     logoUrl: string;
     categoryId: number;
 }
+

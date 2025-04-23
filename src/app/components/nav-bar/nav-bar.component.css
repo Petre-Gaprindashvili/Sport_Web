@@ -8,6 +8,7 @@
   background-color:#001a51;
   height: 12vh;
   
+  
 }
 .category-buttons button:hover {
  color: #ffff;
@@ -89,5 +90,42 @@
 
 }
 
+.auth-buttons .login{
+height: 47px;
+width: 90px;
+background-color: rgb(212 209 204);
+color:#001a51 ;
+border-radius: 0.5px;
+font-family: sans-serif;
+font-weight: bold;
+}
+
+.auth-buttons .login:hover{
+  transition: 0.1s;
+  background: none;
+  border: 0.5px solid rgb(212 209 204);
+  color: #fff;
+  font-weight: bold;
+}
+
+.auth-buttons .register{
+  height: 47px;
+  width: 140px;
+  background-color:#17191a;
+  color:#fff ;
+  border-radius: 0.5px;
+  font-family: sans-serif;
+  font-weight: bold;
+  white-space: pre;
+  }
+  
+  .auth-buttons .register:hover{
+    transition: 0.1s;
+    background: none;
+    border: 0.5px solid rgb(212 209 204);
+    color: #fff;
+    font-weight: bold;
+  }
 
 
+  

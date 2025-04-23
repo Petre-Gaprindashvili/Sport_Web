@@ -4,6 +4,8 @@ export interface News {
     imageUrl:string;
     content:string
     categoryId:number;
-    publishDate:Date;
-
+    videoUrl?:string;
+    publishedDate:Date;
 }
+
+

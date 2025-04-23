@@ -1,0 +1,22 @@
+<!-- Wrapper that centers everything -->
+   <article>
+    <div class="news-container">
+      <h2>{{ news.title }}</h2>
+      <p class="datatime" >{{ news.publishedDate | date }}</p>
+      <div *ngIf="news.videoUrl; else showImage" class="video-container"> 
+        <iframe
+          [src]="getEmbedUrl(news.videoUrl) | safe"     
+
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+        </div>
+      <ng-template #showImage>
+        <div *ngIf="news.imageUrl">
+          <img [src]="news.imageUrl" alt="News Image" class="news-image" />
+        </div>
+      </ng-template>
+      <p>{{ news.content }}</p>
+    </div>
+  </article>
+  

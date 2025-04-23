@@ -1,0 +1,59 @@
+<div class="cart-container container-fluid min-vh-100 py-5 bg-dark text-white d-flex flex-column align-items-center">
+  <div *ngIf="cart && cart.items.length > 0; else emptyCart" class="w-100 px-4">
+    <h2 class="mb-4 text-center">Your Cart</h2>
+
+    <!-- Cart Items -->
+    <div class="list-group w-100">
+      <div 
+        *ngFor="let item of cart.items"
+        class="cart-item list-group-item d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between gap-3 mb-3 w-100"
+      >
+        <!-- Product Image -->
+        <div class="flex-shrink-0">
+          <img [src]="item.imgUrl || 'assets/default.jpg'" alt="product image" width="100" height="100" class="rounded" />
+        </div>
+
+        <!-- Product Details & Quantity -->
+        <div class="flex-grow-1">
+          <h5 class="mb-2">{{ item.productName }}</h5>
+          <div class="quantity-control d-flex align-items-center">
+            <button 
+              class="quantity-btn"
+              (click)="decreaseQuantity(item)"
+              [disabled]="item.quantity <= 1"
+            >−</button>
+            <div class="quantity-number">{{ item.quantity }}</div>
+            <button 
+              class="quantity-btn"
+              (click)="increaseQuantity(item)"
+            >+</button>
+          </div>
+        </div>
+
+        <!-- Price -->
+        <div class="text-center">
+          <p class="mb-1 fw-bold text-success">${{ item.price.toFixed(2) }}</p>
+          <small>Each</small>
+        </div>
+
+        <!-- Total -->
+        <div class="text-end">
+          <p class="mb-1 fw-bold text-info">${{ item.totalPrice.toFixed(2) }}</p>
+          <small>Total</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Summary -->
+    <div class="cart-summary bg-light text-dark p-4 rounded shadow-sm mt-4 w-100 d-flex justify-content-end">
+      <h4 class="mb-0">Total: <span class="text-primary">${{ cart.totalAmount.toFixed(2) }}</span></h4>
+    </div>
+  </div>
+</div>
+
+<!-- Empty Cart -->
+<ng-template #emptyCart>
+  <div class="text-center text-light my-5">
+    <h4>Your cart is empty 🛒</h4>
+  </div>
+</ng-template>

@@ -1,0 +1,63 @@
+<div class="auth-container bg-black text-white d-flex justify-content-center align-items-center gap-3 flex-column">
+    <h2>{{ isLoginMode ? 'Log in' : 'Register' }}</h2>
+  
+    <div class="auth-wrapper">
+        <!-- Toggle Mode -->
+        <p class="toggle-mode text-white">
+          {{ isLoginMode ? "Don&#39;t have an account?" : 'Already have an account?' }}
+          <a class="text-primary" (click)="toggleMode()">{{ isLoginMode ? 'Register' : 'Log in' }}</a>
+        </p>
+      <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <!-- Username: only in Register mode -->
+        <div *ngIf="!isLoginMode">
+          <input class="form-control input-bottom-only" formControlName="userName" type="text" placeholder="Username"
+          [ngClass]="{
+            'input-invalid': authForm.get('email')?.invalid && showErrors
+          }"/>
+
+          <div *ngIf="authForm.get('userName')?.invalid && authForm.get('userName')?.touched" class="error">
+            Username is required and must be at least 3 characters.
+          </div>
+        </div>
+  
+        <!-- Email -->
+        <div>
+          <input class="form-control input-bottom-only" formControlName="email" type="email" placeholder="Email"
+          [ngClass]="{
+            'input-invalid': authForm.get('email')?.invalid && showErrors
+          }"/>
+        
+          <div *ngIf="authForm.get('email')?.hasError('required') && authForm.get('email')?.touched" class="error">
+            Email is required.
+          </div>
+          <div *ngIf="authForm.get('email')?.hasError('email') && authForm.get('email')?.touched" class="error">
+            Enter a valid email.
+          </div>
+        </div>
+  
+        <!-- Password -->
+        <div>
+          <input class="form-control input-bottom-only" formControlName="password" type="password" placeholder="Password"
+          [ngClass]="{
+            'input-invalid': authForm.get('email')?.invalid && showErrors
+          }"/>
+         
+          <div *ngIf="authForm.get('password')?.hasError('required') && authForm.get('password')?.touched" class="error">
+            Password is required.
+          </div>
+          <div *ngIf="authForm.get('password')?.hasError('minlength') && authForm.get('password')?.touched" class="error">
+            Password must be at least 6 characters.
+          </div>
+        </div>
+        <!-- Forgot Password Link -->
+         <p class="forgot-password mt-3">
+          <a class="text-primary" [routerLink]="['/forgot-password']">Forgot Password?</a>
+         </p>
+        <!-- Submit Button -->
+        <button type="submit">{{ isLoginMode ? 'Log in' : 'Register' }}</button>
+        <!-- Message -->
+        <p class="message">{{ message }}</p>
+      </form>
+    </div>
+  </div>
+  
