@@ -31,7 +31,7 @@
           <!-- Conditional Video or Image -->
           <div *ngIf="home[0].videoUrl; else bigImage" class="video-container">
             <iframe
-              [src]="getEmbedUrl(home[0].videoUrl) | safe"     
+              [src]="videohelper.getEmbedUrl(home[0].videoUrl) | safe"     
               frameborder="0"
               allowfullscreen
             >
@@ -62,7 +62,7 @@
           <!-- Conditional Video or Image -->
           <div *ngIf="item.videoUrl; else showImage" class="video-container">
             <iframe
-              [src]="getEmbedUrl(item.videoUrl) | safe"     
+              [src]="videohelper.getEmbedUrl(item.videoUrl) | safe"     
               frameborder="0"
               allowfullscreen>
             </iframe>
@@ -204,7 +204,7 @@
 <div *ngIf="activeTab === 'News'" class="news-tab-wrapper">
   <h3> {{subcategory.name}}  News </h3>
   <div class="row">
-    <div *ngFor="let item of news" class="col-md-6 mb-3 d-flex align-items-center justify-content-center">
+    <div *ngFor="let item of visibleNews" class="col-md-6 mb-3 d-flex align-items-center justify-content-center">
       <div class="news-card card d-flex flex-row align-items-center"
        [routerLink]="['/news-detail-page', item.id]" [queryParams]="{ quaryId: subcategory.id }">
       
@@ -212,7 +212,7 @@
         <div class="media-container">
           <div *ngIf="item.videoUrl; else showImage" class="video-container">
             <iframe
-              [src]="getEmbedUrl(item.videoUrl) | safe"     
+              [src]="videohelper.getEmbedUrl(item.videoUrl) | safe"     
               frameborder="0"
               allowfullscreen
               >
@@ -254,7 +254,7 @@
         <!-- Video Section -->
          <div>
         <iframe *ngIf="video.videoUrl"
-                [src]="getEmbedUrl(video.videoUrl) | safe"
+                [src]="videohelper.getEmbedUrl(video.videoUrl) | safe"
                 frameborder="0"
                 allowfullscreen
                 width="100%"

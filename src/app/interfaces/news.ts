@@ -6,6 +6,14 @@ export interface News {
     categoryId:number;
     videoUrl?:string;
     publishedDate:Date;
+    parentCategoryName: string;
+    // category:category;
 }
 
+
+// export interface category {
+//     parentCategoryId?:number;
+//     name: string;
+//   }
+  
 

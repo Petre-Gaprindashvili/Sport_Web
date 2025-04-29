@@ -1,0 +1,52 @@
+<div *ngIf="visibleNews">
+  <div *ngFor="let category of categories" class="category-section d-flex align-items-center justify-content-center">
+    <div>
+      <!-- Heading aligned left -->
+      <h2 class="category-title text-start">{{ category }} News</h2>
+
+      <!-- Grid container -->
+      <div class="news-grid">
+        <div
+          class="news-card text-white"
+          *ngFor="let newsItem of filteredNewsByCategory(category)"
+          [routerLink]="['/news-detail-page', newsItem.id]"
+          [queryParams]="{ parentCategoryName: category }"
+        >
+          <!-- Media Section -->
+          <div class="media-container">
+            <div *ngIf="newsItem.videoUrl; else showImage" class="video-container">
+              <iframe
+                [src]="videohelper.getEmbedUrl(newsItem.videoUrl) | safe"     
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <ng-template #showImage>
+              <div *ngIf="newsItem.imageUrl">
+                <img [src]="newsItem.imageUrl" alt="News Image" class="news-image" />
+              </div>
+            </ng-template>
+          </div>
+
+          <!-- Card Body -->
+          <div class="card-body">
+            <div class="d-flex align-items-start justify-content-center flex-column gap-2">
+              <h6 class="card-title">{{ newsItem.title }}</h6>
+              <p class="text-secondary">{{ newsItem.publishedDate | date }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More Button per category -->
+<div class="load-more-container" *ngIf="canLoadMore(category)">
+  <button 
+    type="button" 
+    class="load-more-btn" 
+    (click)="loadMoreNews(category)">
+  More {{ category }} news
+  </button>
+</div>
+      </div>
+    </div>
+  </div>
+</div>

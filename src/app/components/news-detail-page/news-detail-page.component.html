@@ -5,7 +5,7 @@
       <p class="datatime" >{{ news.publishedDate | date }}</p>
       <div *ngIf="news.videoUrl; else showImage" class="video-container"> 
         <iframe
-          [src]="getEmbedUrl(news.videoUrl) | safe"     
+          [src]="videohelper.getEmbedUrl(news.videoUrl) | safe"     
 
           frameborder="0"
           allowfullscreen>

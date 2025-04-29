@@ -1,0 +1,54 @@
+<h4 class="text-center">Admin Panel</h4>
+<h5  class="text-center mt-4">Welcome {{ adminEmail }}</h5>
+<div class="admin-panel d-flex min-vh-100">
+    <!-- Sidebar -->
+    <nav id="sidebar" [class.sidebar-open]="isSideBarOpen" class="bg-dark text-white p-3">
+      <button (click)="toggleSideBar()" class="btn">☰</button>
+      <ul class="list-unstyled">
+        <li>
+          <a routerLink="dashboard" routerLinkActive="active" class="link-light d-flex align-items-center mb-3">
+            <span *ngIf="isSideBarOpen">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="usermanagament" routerLinkActive="active" class="link-light d-flex align-items-center mb-3">
+
+            <span *ngIf="isSideBarOpen">Manage Users</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="categorymanagament" routerLinkActive="active" class="link-light d-flex align-items-center mb-3">
+            <span *ngIf="isSideBarOpen">Manage Categories</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="" routerLinkActive="active" class="link-light d-flex align-items-center mb-3">
+            <span *ngIf="isSideBarOpen">Cart</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="settings" routerLinkActive="active" class="link-light d-flex align-items-center mb-3">
+            <span *ngIf="isSideBarOpen">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class=" admin-main flex-grow-1">
+      <!-- Top Navbar -->
+      <!-- <nav class="navbar navbar-dark bg-dark  sticky-top">
+        <div class="container-fluid d-flex justify-content-between">
+          <button (click)="toggleSideBar()" class="btn btn-sm btn-primary">☰</button>
+          <button class="btn btn-sm btn-outline-light">Logout</button>
+        </div>
+      </nav> -->
+  
+      <!-- Main Dashboard Area -->
+      <div class="admin-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+  jjjjjjjjjjjjjjjjjjjjjjj

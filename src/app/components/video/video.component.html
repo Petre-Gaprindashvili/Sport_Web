@@ -1,0 +1,35 @@
+<div *ngIf="videoNews"  class="videonews-tab-wrapper bg-black d-flex align-items-center justify-content-center">
+  <div>
+    <!-- Heading aligned left -->
+    <h2 class="text-white">Video News</h2>
+    <!-- grid-container -->
+    <div class="grid-container">
+      <div *ngFor="let video of videoNews"
+      [routerLink]="['/news-detail-page', video.id]"
+      [queryParams]="{ isVideoNews: true, id: video.id}"
+
+           class="videonews-card card  text-white"
+           >
+
+        <!-- Video Section -->
+         <div>
+        <iframe *ngIf="video.videoUrl"
+                [src]=" videohelper.getEmbedUrl(video.videoUrl) | safe"
+                frameborder="0"
+                allowfullscreen
+                width="100%"
+                height="180">
+        </iframe>
+</div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="d-flex align-items-start justify-content-center flex-column">
+            <h6 class="card-title w-100">{{ video.title }}</h6>
+            <p class="datatime text-center">{{ video.publishedDate | date }}</p>
+          </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>

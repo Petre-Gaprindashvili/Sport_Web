@@ -5,5 +5,12 @@ export interface Subcategory {
     categoryId: number;
   }
 
+  // for admin only
+  export interface Subresponse {
+    id: number;
+    name: string;
+    imageUrl: string;
+    parentCategoryId: number;
+  }
 
-  
+

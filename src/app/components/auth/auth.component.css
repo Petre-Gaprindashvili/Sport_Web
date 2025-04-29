@@ -96,3 +96,85 @@ form button:hover{
 }
 
 
+/* RESPONSIVE STYLES FOR AUTHENTICATION */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+  .auth-wrapper {
+    width: 80%;
+    height: auto;
+    padding: 30px 20px;
+  }
+
+  .auth-container h2 {
+    font-size: 26px;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  form input {
+    margin-top: 25px !important;
+  }
+
+  form button {
+    height: 40px;
+  }
+}
+
+/* Mobile landscape & small tablets (≤ 768px) */
+@media (max-width: 768px) {
+  .auth-container {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .auth-wrapper {
+    width: 90%;
+    padding: 25px 15px;
+  }
+
+  .auth-container h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .error {
+    font-size: 13px;
+  }
+
+  form input {
+    font-size: 15px;
+  }
+
+  form button {
+    font-size: 15px;
+  }
+}
+
+/* Mobile portrait (≤ 480px) */
+@media (max-width: 480px) {
+  .auth-wrapper {
+    width: 95%;
+    padding: 20px 10px;
+  }
+
+  .auth-container h2 {
+    font-size: 20px;
+  }
+
+  form input {
+    font-size: 14px;
+  }
+
+  form button {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .toggle-mode a,
+  .forgot-password a {
+    font-size: 14px;
+  }
+}

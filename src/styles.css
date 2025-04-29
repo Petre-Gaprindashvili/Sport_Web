@@ -3,9 +3,11 @@
      /* padding: 0 !important;  */
     box-sizing: border-box;
 }
+
 html {
-  scroll-behavior: smooth;
+  scroll-behavior:auto !important;
 }
+
 
 /* Container for slick dots */
 .slick-dots {
@@ -16,9 +18,6 @@ html {
     text-align: center; /* Center align the dots */
     z-index: 1; /* Ensure dots are above other content */
   }
-  
-  
-  
   
   /* Default dot style */
   .slick-dots li button:before {
@@ -36,3 +35,43 @@ html {
     filter: brightness(2); 
     opacity: 1;
   }
+
+/* arrows */
+  .slick-prev,
+.slick-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; 
+  
+}
+
+
+.slick-prev {
+  left: -30px; 
+}
+
+.slick-next {
+right: -30px;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  display: inline-block;
+  font-size: 40px;
+  color:#ffff;
+  font-weight: bold;
+}
+
+.slick-prev::before {
+  content: "\276C"; /* Left arrow */
+}
+
+.slick-next::before {
+  content: "\276D"; /* Right arrow */
+}
+
+
+
+
+  

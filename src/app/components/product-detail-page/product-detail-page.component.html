@@ -12,7 +12,7 @@
       <div *ngIf="product.stock > 0" class="text-primary">In Stock: {{ product.stock }}</div>
       <div *ngIf="product.stock === 0" class="text-danger">Out of Stock</div>
   
-      <button  (click)="addTocart(product)"
+      <button [disabled]="!isStockAvailable" (click)="addTocart(product)"
         class="btn btn-primary w-50 mt-3">
         Add to Cart
       </button>
@@ -20,3 +20,5 @@
   </div>
   
 
+
+  

@@ -1,0 +1,80 @@
+/* Sidebar default styles */
+h4,h5{
+   font-size: 30px;
+}
+
+#sidebar {
+    position: relative;
+    width: 250px;
+    max-width: 250px;
+    height: 100vh;  /* Make the sidebar full height */
+    overflow: hidden;
+    transition: width 0.3s ease, padding 0.3s ease;
+    padding-top: 20px;
+    position: fixed;  /* Make sure sidebar stays in place */
+    left: 0;
+    top: 0;
+  }
+  
+  #sidebar:not(.sidebar-open) {
+    width: 80px;  /* Shrunk sidebar width */
+    padding: 0 10px;
+  }
+  
+  /* Ensuring that the icons and text stay within the sidebar when collapsed */
+  #sidebar ul {
+    padding-left: 0;
+    list-style-type: none;
+    margin-top:65px !important ;
+
+  }
+  
+  #sidebar li {
+    padding: 10px 16px;
+
+    display: flex;
+    align-items: center;  /* Align items properly */
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  /* Ensuring that the icon is inside the sidebar */
+  #sidebar i {
+    font-size: 1.5em; /* Icon size */
+    margin-right: 10px; /* Space between icon and text */
+    flex-shrink: 0;  /* Prevent icon from shrinking */
+  }
+  
+  /* Hide text when sidebar is collapsed */
+  #sidebar span {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+  }
+  
+  #sidebar:not(.sidebar-open) span {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  /* Prevent sidebar content from overflowing */
+  #sidebar ul li a {
+    display: flex;  /* Ensure icon and text are flex containers */
+    align-items: center;  /* Vertically align the icon and text */
+    color: white;
+    text-decoration: none;
+  }
+  
+  #sidebar ul li a:hover {
+  filter: brightness(80%); 
+ }
+
+  #sidebar .btn {
+   color: #ffff;
+   font-size: 25px;
+   position: absolute;
+   top: 80px ;
+   right: 8px; 
+}
+
+
+  

@@ -1,0 +1,47 @@
+<!-- image-slider -->
+<ngx-slick-carousel class="carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of images" class="slide"> 
+        <div class="background-slider" [ngStyle]="{'background-image': 'url(' + slide.src + ')'}">        
+        <div class="header-info">
+          <p> Question of the Day </p>
+          <h6>Anyone’s game: What  are the most watched  <br>sports in the world? </h6>   
+          </div> 
+      </div>
+    </div>
+  </ngx-slick-carousel>
+<!-- matches-card-slider -->
+  <div class="matches-carousel-container mx-auto">
+  <h3>Full Schedule </h3>
+  <ngx-slick-carousel class="carousel" [config]="slideConfigg" *ngIf="results.length > 0">
+    <div ngxSlickItem *ngFor="let match of results" class="slide px-2">
+      <div class="match-card card p-3">
+        <div class="match-card-info d-flex align-items-center justify-content-between w-100 p-2 text-white fw-bold">
+          <p>{{ match.matchDate | date:  'dd/MM/yyyy' }}</p>
+          <h6 *ngIf="match.isPast; else upcomingMatch">Final</h6> <!-- Show "Final" for past matches -->
+          <ng-template #upcomingMatch>
+            <h6>Upcoming</h6>  <!-- Show "Upcoming" for future matches -->
+          </ng-template>
+        </div>
+        <div class="d-flex gap-2 flex-column w-100">
+          <!-- Home Team -->
+          <div class="team-row d-flex align-items-center justify-content-between w-100 p-2">
+            <div class="d-flex align-items-center gap-2">
+              <img [src]="match.homeTeamLogo" alt="Home Logo" class="team-logo" />
+              <h5 class="text-white mb-0 h6">{{ match.homeTeamName | shortName }}</h5>
+            </div>
+            <p class="score text-white mb-0 h5">{{ match.homeScore }}</p>
+          </div>
+
+          <!-- Away Team -->
+          <div class="team-row d-flex align-items-center justify-content-between w-100 p-2">
+            <div class="d-flex align-items-center  gap-2">
+              <img [src]="match.awayTeamLogo" alt="Away Logo" class="team-logo" />
+              <h5 class="text-white mb-0 h6">{{ match.awayTeamName | shortName }}</h5>
+            </div>
+            <p class="score text-white mb-0 h5">{{ match.awayScore }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+</div>

@@ -3,7 +3,10 @@
   <nav class="navbar d-flex align-items-center justify-content-center">
     <div class="container d-flex align-items-center justify-content-around gap-5 w-100">
       <!-- Left: Brand -->
-      <a class="navbar-brand text-white fw-bold" [routerLink]="['/']">MyStore</a>
+      <a class="navbar-brand text-white fw-bold" [routerLink]="['/']">
+        <img src="https://images.supersport.com/media/eoagvak1/ss-logo-2024.png?width=96&quality=95&format=webp" alt="">
+        <p>SuperSport </p>
+      </a>
       
       <!-- Center: Categories -->
       <div class="categories-wrapper d-flex justify-content-center gap-3">
@@ -11,15 +14,16 @@
              *ngFor="let cat of categories"
              (mouseenter)="onCategoryHover(cat)"
              (mouseleave)="onCategoryLeave()">
-          <button class="btn category-btn bg-transparent border-0">
-            {{ cat.name }}
-            <span>&#x2335;</span>
+             <button [routerLink]="cat.name === 'Videos' ? '/video' : null" 
+             class="btn category-btn bg-transparent border-0">
+              {{ cat.name }}
           </button>
           <div class="dropdown"
+
                *ngIf="subCategories.length > 0 && selectedCategoryName === cat.name">
             <div class="dropdown-content">
               <div class="dropdown-item text-center d-flex align-items-center gap-2"
-                   *ngFor="let sub of subCategories"
+                   *ngFor="let sub of subCategories" 
                    [routerLink]="['/subcategory-detail-page', sub.id]">
                 <img [src]="sub.imageUrl" alt="{{ sub.name }}" class="img-fluid mb-2" />
                 <h5>{{ sub.name }}</h5>
@@ -34,8 +38,8 @@
         <!-- Cart Icon (always takes space, visibility toggled) -->
         <div [ngClass]="{ 'invisible': !(router.url.includes('/team-detail-page') || router.url === '/cart' || router.url.includes('/product-detail-page')) }">
           <a routerLink="/cart" class="nav-link position-relative text-white">
-            <i class="bi bi-cart3 fs-4">cart</i>
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            <i class="cart-icon fa-solid x-l fa-cart-shopping"></i>
+            <span class="cart-number position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               {{cartItemCount}}
             </span>
           </a>

@@ -28,7 +28,7 @@
      <!-- Conditional Video or Image -->
      <div *ngIf="home[0].videoUrl; else bigImage" class="video-container">
        <iframe
-         [src]="getEmbedUrl(home[0].videoUrl) | safe"     
+         [src]="videohelper.getEmbedUrl(home[0].videoUrl) | safe"     
          frameborder="0"
          allowfullscreen
          style="pointer-events: none;">
@@ -58,14 +58,14 @@
             <!-- Conditional Video or Image -->
             <div *ngIf="item.videoUrl; else showImage" class="video-container">
               <iframe 
-                [src]="getEmbedUrl(item.videoUrl) | safe"     
+                [src]="videohelper.getEmbedUrl(item.videoUrl) | safe"     
                 frameborder="0"
                 allowfullscreen>
               
               </iframe>
             </div>
             <ng-template #showImage>
-              <img [src]="item.imageUrl" alt="News Image" class="small-news-img" />
+              <img [src]="item.imageUrl" alt="News Image" class="small-news-img"  loading="lazy" />
             </ng-template>
           <!-- <img [src]="item.imageUrl" alt="Small News" class="small-news-img"> -->
           <div class="ms-3">
@@ -79,7 +79,7 @@
  </div>
  <!-- roster-tab -->
  <div *ngIf="activeTab === 'roster'" class="roster-table-container d-flex align-items-center justify-content-center flex-column">
-  <div  class="roster-wrapper">
+  <div  class="roster-wrapper mb-4">
   <h2> {{team.teamName}}  Roster 2024</h2>  
   <table class="table table-dark">
     <thead class="thead-dark">
@@ -233,7 +233,7 @@
         <div class="media-container">
           <div *ngIf="item.videoUrl; else showImage" class="video-container">
             <iframe
-            [src]="getEmbedUrl(item.videoUrl) | safe"     
+            [src]="videohelper.getEmbedUrl(item.videoUrl) | safe"     
             frameborder="0"
             allowfullscreen
           >
@@ -257,7 +257,7 @@
 <!-- shop-tab -->
 <div *ngIf="activeTab ==='shop'" class="shop-tab-wrapper d-flex justify-content-center align-items-center">
   <div>
-    <h2>Shop</h2>
+    <h2 class="text-light">Shop</h2>
   <div class="shop-grid-container">
   <div [routerLink]="['/product-detail-page', item.id]" *ngFor="let item of product" class="shop-card card bg-dark">
     <img class="card-img-top" [src]="item.imageUrl" alt="Card image cap">

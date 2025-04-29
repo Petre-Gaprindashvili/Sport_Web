@@ -1,0 +1,77 @@
+<div class="d-flex align-items-center justify-content-center gap-5">
+  
+  <!-- Category Management -->
+  <div class="category-wrapper w-25 mt-5">
+    <h3 class="text-center mb-5">Category Management</h3>
+    <div class="card shadow-sm ">
+      <form [formGroup]="categoryForm" (ngSubmit)="submitCategoryAction()">
+
+        <!-- Select Action -->
+        <div class="form-group mb-3">
+          <select formControlName="selectedAction" class="form-select" required (change)="onActionChange()">
+            <option value="">Select Category Action</option>
+            <option value="add">Add</option>
+            <option value="update">Update</option>
+            <option value="delete">Delete</option>
+          </select>
+        </div>
+
+        <!-- Show Category Name for Add/Update -->
+        <div class="form-group mb-3" *ngIf="categoryForm.get('selectedAction')?.value === 'add' || categoryForm.get('selectedAction')?.value === 'update'">
+          <input formControlName="categoryName" type="text" class="form-control" placeholder="Enter Category Name..." required />
+        </div>
+
+        <!-- Show Category ID for Update/Delete -->
+        <div class="form-group mb-3" *ngIf="categoryForm.get('selectedAction')?.value === 'update' || categoryForm.get('selectedAction')?.value === 'delete'">
+          <label for="categoryId">Enter Category ID</label>
+          <input formControlName="categoryId" type="number" class="form-control" placeholder="Enter Category ID..." required />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+          {{ categoryForm.get('selectedAction')?.value | titlecase }} Category
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Subcategory Management -->
+  <div class="subcategory-wrapper w-25 mt-5">
+    <h3 class="text-center mb-3" >Subcategory Management</h3>
+    <div class="card shadow-sm ">
+      <form [formGroup]="subCategoryForm" (ngSubmit)="submitSubCategoryAction()">
+
+        <!-- Select Subcategory Action -->
+        <div class="form-group mb-3">
+          <select formControlName="selectedAction" class="form-select">
+            <option value="">Select Subcategory Action</option>
+            <option value="add">Add</option>
+            <option value="delete">Delete</option>
+          </select>
+        </div>
+
+        <!-- Show Name & Image Inputs for Add/Update -->
+        <div class="form-group mb-3" *ngIf="subCategoryForm.get('selectedAction')?.value === 'add'">
+          <input formControlName="name" type="text" class="form-control" placeholder="Enter Subcategory Name..." />
+        </div>
+
+        <div class="form-group mb-3" *ngIf="subCategoryForm.get('selectedAction')?.value === 'add'">
+          <input formControlName="image" type="text" class="form-control" placeholder="Enter Image URL..." />
+        </div>
+
+        <!-- Show Subcategory ID for Update/Delete -->
+        <div class="form-group mb-3" *ngIf="subCategoryForm.get('selectedAction')?.value === 'delete'">
+          <label for="categoryId">Enter Subcategory ID</label>
+          <input formControlName="categoryId" type="number" class="form-control" placeholder="Enter Subcategory ID..." />
+        </div>
+
+
+        <button type="submit" class="btn btn-primary w-100">
+          {{ subCategoryForm.get('selectedAction')?.value | titlecase }} Subcategory
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+</div>

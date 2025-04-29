@@ -6,26 +6,35 @@ import { HomeComponent } from './components/home/home.component';
 import { TeamDetailPageComponent } from './components/team-detail-page/team-detail-page.component';
 import { NewsDetailPageComponent } from './components/news-detail-page/news-detail-page.component';
 import { AuthComponent } from './components/auth/auth.component';
-import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ProductDetailPageComponent } from './components/product-detail-page/product-detail-page.component';
 import { CartComponent } from './components/cart/cart.component';
+import { UsermanagamentComponent } from './admin/usermanagament/usermanagament.component';
+import { CategorymanagamentComponent } from './admin/categorymanagament/categorymanagament.component';
+import { VideoComponent } from './components/video/video.component';
 
 const routes: Routes = [
+    // Public Routes
+
   {
     path:'',
     component: HomeComponent
+  },
+  {
+    path:'video',
+    component:VideoComponent
   },
 
   {
     path:'auth',
     component: AuthComponent
   },
-  {
-    path:'admin',
-    component: AdminPanelComponent
-  },
+  // {
+  //   path:'admin',
+  //   component: AdminpanelComponent
+  // },
   {
     path:'forgot-password',
     component:ForgotPasswordComponent
@@ -54,6 +63,22 @@ const routes: Routes = [
   {
     path:'cart',
     component:CartComponent
+  },
+  
+  // Admin Routes (Nested Routes)
+
+  {
+    path: 'admin',
+    component: AdminpanelComponent,
+    children:[
+      {path:'usermanagament', component:UsermanagamentComponent },
+      {path:'categorymanagament', component:CategorymanagamentComponent },
+
+
+
+      
+    ]
+
   }
 
 ];
@@ -63,7 +88,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' }
+    )
   ],
   exports: [RouterModule]
 

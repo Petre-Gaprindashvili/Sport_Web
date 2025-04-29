@@ -29,3 +29,13 @@ export interface ResetPassword{
   newPassword: string;
   confirmPassword: string;
 }
+
+//for admin only
+export interface getUsers{
+  userId:number
+  userName:string;
+  email: string;
+  role?: string; // 'admin' or '' (empty string) for regular users
+  isActive:boolean;
+}
+

@@ -1,0 +1,118 @@
+/* Center everything in the page */
+.admin-dashboard {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+  
+  .table {
+    width: 70%; /* Make the table smaller and centered */
+    margin: 20px 0; /* Add some margin for spacing */
+  }
+  
+  .table th, .table td {
+    text-align: center;
+    padding: 8px; /* Reduce padding to make the table more compact */
+    font-size: 14px; /* Smaller text size */
+  }
+  
+  .user-details {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Limit the width of the user details */
+    margin-top: 20px;
+    font-size: 14px; /* Smaller text size for details */
+  }
+  
+  .user-details h4 {
+    text-align: center;
+    font-size: 16px; /* Smaller font size for the title */
+  }
+  
+  .user-details p {
+    font-size: 14px; /* Smaller text for the details */
+    line-height: 1.5; /* Add line height for readability */
+  }
+  
+  /* Make the buttons smaller */
+  button {
+    margin-top: 10px;
+    padding: 5px 10px; /* Smaller button size */
+    font-size: 14px; /* Smaller font size for buttons */
+  }
+  
+  .btn-info {
+    font-size: 14px; /* Button font size */
+  }
+  
+  /* Adjust the page responsiveness */
+  @media (max-width: 768px) {
+    .table {
+      width: 100%; /* Make the table take full width on smaller screens */
+    }
+  }
+  
+  .admin-actions input{
+ width: 480px;
+ border: none;
+ border-bottom: 1px solid #534e4e;
+ border-radius: 0;
+ box-shadow: none;
+ 
+  }
+  ::placeholder{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .btn-group button{
+    width: 90px;
+    border-radius: 0px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    height: 36px;
+  }
+/* Styling for User Info Box */
+.user-info-box {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin: 0 auto; /* Ensure it is centered */
+  }
+  
+  /* Flexbox layout for the input and user info box */
+  .admin-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* For the Close Button to stay fixed on the right */
+  .d-flex.justify-content-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Styling for the close button */
+  .btn-sm.btn-danger {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  
+  /* Improve text alignment and spacing inside the info box */
+  .user-info-box .mt-4.text-center p {
+    margin-bottom: 10px;
+  }
+  

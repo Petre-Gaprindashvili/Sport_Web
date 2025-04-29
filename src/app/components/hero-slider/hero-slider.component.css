@@ -1,0 +1,203 @@
+.background-slider{
+    height: 88vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-info{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 3em;
+}
+
+.header-info p{
+    font-weight: Ginto Nord,sans-serif;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    font-size: 30px;
+    font-weight: bolder; 
+     color: rgb(77, 163, 174);
+  
+}
+.header-info h6{
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    text-align: start;
+     color: #fefefe;
+     font-weight: Ginto Nord,sans-serif;
+       font-size: 50px;
+     font-weight: bolder; 
+}
+
+  
+.matches-carousel-container{
+   width: 85% ;
+   margin: 0 auto;
+
+}
+
+.matches-carousel-container h3{
+  color: rgb(212 209 204);
+  font-size: 25px;
+  font-weight: 500;
+  font-family: sans-serif;
+  margin-top: 80px !important;
+  margin-bottom:  20px !important;
+  padding-left: 10px;
+}
+
+.match-card {
+    background-color:#1d2021;
+    border-radius: 10px;
+   height: 140px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+  }
+  
+  .match-card-info p, h6 {
+    font-size: 13px;
+    font-weight: 500;
+
+    }
+  .team-row {
+    height: 45px;
+    background-color: #17191a;
+    border: 0.5px solid #3b4043;
+  }
+
+  .team-logo {
+    width: 47px;
+    height: 47px;
+    object-fit: contain;
+  }
+  
+  /* RESPONSIVE DESIGN */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+  .background-slider {
+    height: 75vh;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .header-info {
+    gap: 2em;
+  }
+
+  .header-info p {
+    font-size: 24px;
+  }
+
+  .header-info h6 {
+    font-size: 36px;
+  }
+
+  .matches-carousel-container {
+    width: 90%;
+  }
+
+  .matches-carousel-container h3 {
+    font-size: 22px;
+  }
+
+  .match-card {
+    height: 130px;
+  }
+}
+
+/* Mobile landscape & small tablets (≤ 768px) */
+@media (max-width: 768px) {
+  .background-slider {
+    height: 70vh;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .header-info p {
+    font-size: 20px;
+  }
+
+  .header-info h6 {
+    font-size: 30px;
+  }
+
+  .match-card {
+    height: 120px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+  }
+
+  .matches-carousel-container {
+    width: 95%;
+  }
+
+  .team-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .team-row {
+    height: 40px;
+  }
+}
+
+/* Mobile portrait (≤ 480px) */
+@media (max-width: 480px) {
+  .background-slider {
+    height: auto;
+    padding: 20px;
+  }
+
+  .header-info {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5em;
+  }
+
+  .header-info p {
+    font-size: 18px;
+  }
+
+  .header-info h6 {
+    font-size: 24px;
+  }
+
+  .matches-carousel-container h3 {
+    font-size: 20px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .match-card {
+    height: auto;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .match-card-info p, .match-card-info h6 {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .team-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .team-row {
+    height: 38px;
+  }
+}
+
+
+
